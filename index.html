@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نقش‌آرا | ابزار کار</title>
+<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101216" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="نقش‌آرا">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap">
+<style>
+:root{--bg:#f6f4ef;--card:#fff;--tx:#1b1d22;--mut:#6b6f78;--ac:#b8862e;--bd:#e2ddd2;--in:#fff;
+box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--card:#1a1d23;--tx:#eceae4;--mut:#9a9ea8;--ac:#d4a24a;--bd:#2c313a;--in:#14171c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101216;--card:#1a1d23;--tx:#eceae4;--mut:#9a9ea8;--ac:#d4a24a;--bd:#2c313a;--in:#14171c;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,"Segoe UI",sans-serif;line-height:1.7}
+main{max-width:520px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:8px 0 14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+label{display:block;font-size:14px;color:var(--mut);margin:8px 0 4px}
+input[type=text]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--in);color:var(--tx);font:inherit;font-size:16px}
+.files{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fb{display:block;text-align:center;padding:14px 8px;border:2px dashed var(--bd);border-radius:12px;cursor:pointer;font-size:15px;color:var(--tx)}
+.fb.ok{border-style:solid;border-color:var(--ac);color:var(--ac)}
+.fb input{display:none}
+button{width:100%;padding:12px;border:0;border-radius:12px;background:var(--ac);color:#fff;font:inherit;font-weight:700;font-size:16px;margin-top:10px}
+.hint{font-size:14px;color:var(--mut);text-align:center;margin:8px 0}
+#out{width:100%;height:auto;border-radius:10px;display:block;border:1px solid var(--bd)}
+#cv{display:none}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;padding:8px 12px;padding-top:calc(8px + env(safe-area-inset-top,0px));background:var(--bg);border-bottom:1px solid var(--bd)}
+nav button{flex:1;margin:0;padding:9px 4px;font-size:14px;background:var(--card);color:var(--tx);border:1px solid var(--bd)}
+nav button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+section[hidden]{display:none}
+select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--in);color:var(--tx);font:inherit;font-size:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row{border:1px solid var(--bd);border-radius:10px;padding:8px;margin-top:8px}
+.row .g3{display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:6px;margin-top:6px}
+.x{background:none;color:var(--mut);border:0;width:auto;margin:0;padding:0 6px;font-size:18px;float:left}
+.sec{background:var(--bd);color:var(--tx)}
+.res table{width:100%;border-collapse:collapse;font-size:14px}
+.res td{padding:6px 4px;border-bottom:1px solid var(--bd)}
+.res td:last-child{text-align:left;white-space:nowrap}
+.w{border-right:4px solid #c0392b;background:var(--in);padding:8px 10px;border-radius:8px;margin:6px 0;font-size:14px}
+.r{border-right:4px solid var(--ac);background:var(--in);padding:8px 10px;border-radius:8px;margin:6px 0;font-size:14px}
+#doc{background:#fff;color:#111;padding:16px;border-radius:8px;font-size:14px;line-height:2;overflow-x:auto}
+#doc h2{text-align:center;font-size:18px;margin:0 0 6px}
+#doc p{margin:4px 0;text-align:justify}
+#doc table{width:100%;border-collapse:collapse;margin:8px 0}
+#doc th,#doc td{border:1px solid #888;padding:3px 5px;text-align:center;font-size:13px}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px;text-align:center}
+@media print{nav,#s1,#s3,.noprint{display:none!important}body{background:#fff}main{max-width:none;padding:0}#doc{padding:0}}
+</style>
+</head>
+<body>
+<nav><button class="on" data-t="1">پست قبل/بعد</button><button data-t="2">فاکتور</button><button data-t="3">برنامه و هزینه</button></nav>
+<main>
+<section id="s1">
+<h1>ساخت پست قبل و بعد</h1>
+<div class="card">
+<div class="files">
+<label class="fb" id="fb1">عکس «قبل»<input type="file" accept="image/*" id="f1"></label>
+<label class="fb" id="fb2">عکس «بعد»<input type="file" accept="image/*" id="f2"></label>
+</div>
+<label for="t1">نام برند</label>
+<input type="text" id="t1" value="نقش‌آرا">
+<label for="t2">خدمات و شهر</label>
+<input type="text" id="t2" value="نقاشی ساختمان | رشت">
+<label for="t3">راه ارتباطی</label>
+<input type="text" id="t3" value="@Naghsh.Ara.Rasht" dir="ltr">
+<label for="t4">توضیح کار (اختیاری)</label>
+<input type="text" id="t4" placeholder="مثلاً: رنگ‌آمیزی پذیرایی ۴۰ متری">
+</div>
+<div class="card">
+<img id="out" alt="" hidden>
+<canvas id="cv"></canvas>
+<p class="hint" id="hint">دو عکس را انتخاب کنید تا پیش‌نمایش ساخته شود.</p>
+<button id="sh" hidden>ذخیره / اشتراک‌گذاری</button>
+<p class="hint" id="tip" hidden>اگر دکمه کار نکرد: روی عکس انگشت را نگه دارید و «ذخیره در Photos» را بزنید. رنگ‌های پایین از روی عکس «بعد» استخراج می‌شوند و کد رنگ واقعی قوطی نیستند.</p>
+</div>
+</section>
+<section id="s2" hidden>
+<h1>فاکتور و قرارداد</h1>
+<div class="card noprint">
+<label>نوع سند</label>
+<select id="i_type"><option value="p">پیش‌فاکتور و قرارداد</option><option value="f">صورت‌حساب نهایی</option></select>
+<label>نام پیمانکار</label><input type="text" id="i_me" placeholder="نام و نام خانوادگی">
+<div class="g2"><div><label>تلفن پیمانکار</label><input type="text" id="i_mp" inputmode="tel"></div><div><label>پروانه کسب / عضویت صنفی</label><input type="text" id="i_lic" placeholder="اختیاری"></div></div>
+<label>نام کارفرما</label><input type="text" id="i_cu">
+<div class="g2"><div><label>تلفن کارفرما</label><input type="text" id="i_cp" inputmode="tel"></div><div><label>شهر</label><input type="text" id="i_city" value="رشت"></div></div>
+<label>نشانی محل اجرا</label><input type="text" id="i_ad">
+<label>اقلام کار</label>
+<div id="rows"></div>
+<button class="sec" id="addr">+ افزودن ردیف</button>
+<div class="g2"><div><label>تخفیف (تومان)</label><input type="text" id="i_di" inputmode="decimal" value="0"></div><div><label>مالیات ارزش افزوده (٪)</label><input type="text" id="i_tx" inputmode="decimal" value="0"></div>
+<div><label>پیش‌پرداخت (٪)</label><input type="text" id="i_ap" inputmode="decimal" value="40"></div><div><label>پرداخت‌شده تاکنون (تومان)</label><input type="text" id="i_pd" inputmode="decimal" value="0"></div>
+<div><label>مدت اجرا (روز کاری)</label><input type="text" id="i_dy" inputmode="decimal" value="5"></div><div><label>ضمانت اجرا (ماه)</label><input type="text" id="i_wr" inputmode="decimal" value="12"></div>
+<div><label>اعتبار پیش‌فاکتور (روز)</label><input type="text" id="i_va" inputmode="decimal" value="7"></div><div><label>تأمین رنگ و مصالح</label><select id="i_mt"><option>پیمانکار</option><option>کارفرما</option></select></div></div>
+<label>مشخصات رنگ و مصالح</label><input type="text" id="i_md" placeholder="مثلاً: رنگ پلاستیک اکریلیک، کد رنگ ... ، آستر و دو دست رنگ">
+<button id="mk">ساخت سند</button>
+<p class="hint">این قالب عمومی است و من وکیل نیستم. برای کارهای بزرگ یک‌بار مشاور حقوقی نگاهش کند.</p>
+</div>
+<div class="card" id="dc" hidden>
+<div class="g2 noprint"><button id="cp">کپی متن</button><button id="pr" class="sec">چاپ / PDF</button></div>
+<div id="doc"></div>
+</div>
+</section>
+<section id="s3" hidden>
+<h1>برنامه کار و هزینه‌ها</h1>
+<div class="card">
+<div class="g2">
+<div><label>متراژ کل (متر مربع)</label><input type="text" id="p_ar" inputmode="decimal"></div><div><label>تعداد دست رنگ</label><input type="text" id="p_ct" inputmode="decimal" value="2"></div>
+<div><label>تولید هر نفر در روز (م²)</label><input type="text" id="p_ou" inputmode="decimal" value="45"></div><div><label>روز آماده‌سازی (بتونه و آستر)</label><input type="text" id="p_pp" inputmode="decimal" value="2"></div>
+<div><label>تعداد شاگرد</label><input type="text" id="p_hc" inputmode="decimal" value="1"></div><div><label>دستمزد روزانه خودت</label><input type="text" id="p_mw" inputmode="decimal"></div>
+<div><label>روزمزد هر شاگرد</label><input type="text" id="p_hw" inputmode="decimal"></div><div><label>ناهار هر نفر در روز</label><input type="text" id="p_lu" inputmode="decimal" value="0"></div>
+<div><label>رفت‌وآمد در روز (کل)</label><input type="text" id="p_tr" inputmode="decimal" value="0"></div><div><label>پوشش هر لیتر رنگ (م²)</label><input type="text" id="p_cv" inputmode="decimal" value="10"></div>
+<div><label>قیمت هر لیتر رنگ</label><input type="text" id="p_lp" inputmode="decimal"></div><div><label>ضایعات رنگ (٪)</label><input type="text" id="p_wa" inputmode="decimal" value="10"></div>
+<div><label>آستر، بتونه، نایلون، چسب، سنباده (کل)</label><input type="text" id="p_ot" inputmode="decimal" value="0"></div><div><label>مبلغ قرارداد</label><input type="text" id="p_rv" inputmode="decimal"></div>
+</div>
+<button class="sec" id="fi">گرفتن مبلغ از فاکتور</button>
+<button id="pc">محاسبه و تحلیل</button>
+</div>
+<div class="card res" id="pres" hidden></div>
+</section>
+</main>
+<script>
+var $=function(i){return document.getElementById(i)};
+var imgs={a:null,b:null},timer=null,blob=null;
+function loadFile(f){return new Promise(function(ok,no){var i=new Image();i.onload=function(){URL.revokeObjectURL(i.src);ok(i)};i.onerror=no;i.src=URL.createObjectURL(f)})}
+function rr(x,a,b,w,h,r){x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath()}
+var F='Vazirmatn,Tahoma,sans-serif';
+function cover(x,img,px,py,pw,ph){var s=Math.max(pw/img.width,ph/img.height),sw=pw/s,sh=ph/s;x.drawImage(img,(img.width-sw)/2,(img.height-sh)/2,sw,sh,px,py,pw,ph)}
+function printCard(x,img,cx,cy,rot,label,ink){
+ var w=480,pw=452,ph=640,h=732;
+ x.save();x.translate(cx,cy);x.rotate(rot);
+ x.shadowColor='rgba(0,0,0,.5)';x.shadowBlur=36;x.shadowOffsetY=16;
+ x.fillStyle='#f7f4ee';x.fillRect(-w/2,-h/2,w,h);
+ x.shadowColor='transparent';
+ var px=-pw/2,py=-h/2+14;
+ x.save();x.beginPath();x.rect(px,py,pw,ph);x.clip();
+ if(img)cover(x,img,px,py,pw,ph);
+ else{x.fillStyle='#d9d4c8';x.fillRect(px,py,pw,ph);x.fillStyle='#8a8578';x.font='400 32px '+F;x.textAlign='center';x.textBaseline='middle';x.fillText('عکس '+label,0,py+ph/2)}
+ x.restore();
+ x.fillStyle=ink;x.font='900 44px '+F;x.textAlign='center';x.textBaseline='middle';x.fillText(label,0,h/2-38);
+ x.save();x.translate(0,-h/2+4);x.rotate(.09);
+ x.shadowColor='rgba(0,0,0,.3)';x.shadowBlur=8;x.shadowOffsetY=3;
+ x.fillStyle='rgba(240,184,58,.92)';x.fillRect(-82,-23,164,46);
+ x.restore();
+ x.restore();
+}
+function hex(c){return '#'+c.map(function(v){return('0'+v.toString(16)).slice(-2)}).join('').toUpperCase()}
+function palette(img){
+ var c=document.createElement('canvas');c.width=c.height=48;var g=c.getContext('2d');g.drawImage(img,0,0,48,48);
+ var d=g.getImageData(0,0,48,48).data,m={},i,k,o;
+ for(i=0;i<d.length;i+=4){k=(d[i]>>5)+','+(d[i+1]>>5)+','+(d[i+2]>>5);o=m[k]||(m[k]={n:0,r:0,g:0,b:0});o.n++;o.r+=d[i];o.g+=d[i+1];o.b+=d[i+2]}
+ var a=Object.keys(m).map(function(q){return m[q]}).sort(function(p,q){return q.n-p.n}).map(function(o){return[Math.round(o.r/o.n),Math.round(o.g/o.n),Math.round(o.b/o.n)]});
+ var out=[],j,t,e,ok;
+ for(j=0;j<a.length&&out.length<5;j++){ok=true;for(t=0;t<out.length;t++){e=out[t];if(Math.abs(e[0]-a[j][0])+Math.abs(e[1]-a[j][1])+Math.abs(e[2]-a[j][2])<70){ok=false;break}}if(ok)out.push(a[j])}
+ return out}
+function chips(x,cols,y){
+ var w=150,h=124,gap=20,n=5,x0=(1080-(n*w+(n-1)*gap))/2,i,cx;
+ for(i=0;i<n;i++){cx=x0+i*(w+gap);
+  x.save();x.shadowColor='rgba(0,0,0,.4)';x.shadowBlur=14;x.shadowOffsetY=6;x.fillStyle='#f7f4ee';x.fillRect(cx,y,w,h);x.restore();
+  x.fillStyle=cols[i]?'rgb('+cols[i].join(',')+')':'#34465c';x.fillRect(cx+8,y+8,w-16,76);
+  if(cols[i]){x.fillStyle='#3d4047';x.font='400 24px '+F;x.textAlign='center';x.textBaseline='middle';x.direction='ltr';x.fillText(hex(cols[i]),cx+w/2,y+104);x.direction='rtl'}
+ }}
+async function draw(){
+ try{await document.fonts.load('900 44px Vazirmatn');await document.fonts.load('400 30px Vazirmatn')}catch(e){}
+ var c=$('cv'),x=c.getContext('2d'),W=1080,H=1350,i;
+ c.width=W;c.height=H;x.direction='rtl';
+ var g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#2c4058');g.addColorStop(1,'#1c293a');
+ x.fillStyle=g;x.fillRect(0,0,W,H);
+ for(i=0;i<7000;i++){x.fillStyle=Math.random()<.5?'rgba(255,255,255,.035)':'rgba(0,0,0,.05)';x.fillRect(Math.random()*W,Math.random()*H,2,2)}
+ x.textAlign='center';x.textBaseline='middle';
+ x.fillStyle='#f3eee3';x.font='900 96px '+F;x.fillText($('t1').value,W/2,88);
+ x.fillStyle='#f0b83a';x.font='400 34px '+F;x.fillText($('t2').value,W/2,158);
+ printCard(x,imgs.a,795,612,.028,'قبل','#5a5f68');
+ printCard(x,imgs.b,285,600,-.03,'بعد','#1b2a4a');
+ var cols=imgs.b?palette(imgs.b):[];
+ x.textAlign='center';x.textBaseline='middle';
+ if(cols.length){x.fillStyle='#aab4c3';x.font='400 28px '+F;x.fillText('طیف رنگی فضا',W/2,1030)}
+ chips(x,cols,1056);
+ var d=$('t4').value.trim();
+ x.textAlign='center';x.textBaseline='middle';
+ if(d){x.fillStyle='#f3eee3';x.font='700 38px '+F;x.fillText(d,W/2,1236);x.fillStyle='#aab4c3';x.font='400 30px '+F;x.direction='ltr';x.fillText($('t3').value,W/2,1294)}
+ else{x.fillStyle='#f3eee3';x.font='400 34px '+F;x.direction='ltr';x.fillText($('t3').value,W/2,1264)}
+ x.direction='rtl';
+ if(imgs.a&&imgs.b){
+  $('out').src=c.toDataURL('image/png');c.toBlob(function(b){blob=b},'image/png');$('out').hidden=false;
+  $('hint').hidden=true;$('tip').hidden=false;$('sh').hidden=false;
+ }
+}
+function later(){clearTimeout(timer);timer=setTimeout(function(){draw().catch(function(){})},250)}
+function pick(id,key,box){
+ $(id).addEventListener('change',async function(e){
+  var f=e.target.files[0];if(!f)return;
+  try{imgs[key]=await loadFile(f);$(box).classList.add('ok');later()}catch(err){}
+ });
+}
+pick('f1','a','fb1');pick('f2','b','fb2');
+['t1','t2','t3','t4'].forEach(function(i){$(i).addEventListener('input',later)});
+$('sh').addEventListener('click',function(){
+ if(!blob)return;
+ try{var f=new File([blob],'naghsh-ara.png',{type:'image/png'});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).catch(function(){});return}}catch(e){}
+ $('tip').scrollIntoView();
+});
+/* ---- tabs, helpers ---- */
+var lastTotal=0;
+function num(v){v=String(v||'').replace(/[۰-۹]/g,function(d){return d.charCodeAt(0)-1776}).replace(/[٠-٩]/g,function(d){return d.charCodeAt(0)-1632}).replace(/[,٬،\s]/g,'').replace('٫','.');return parseFloat(v)||0}
+function fd(s){return String(s).replace(/[0-9]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})}
+function fmt(n){return Math.round(n).toLocaleString('fa-IR')}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function E(s){return fd(esc(s))}
+var U=['','یک','دو','سه','چهار','پنج','شش','هفت','هشت','نه','ده','یازده','دوازده','سیزده','چهارده','پانزده','شانزده','هفده','هجده','نوزده'],T=['','','بیست','سی','چهل','پنجاه','شصت','هفتاد','هشتاد','نود'],H=['','یکصد','دویست','سیصد','چهارصد','پانصد','ششصد','هفتصد','هشتصد','نهصد'],S=['','هزار','میلیون','میلیارد','هزار میلیارد'];
+function w3(n){var p=[],h=Math.floor(n/100),r=n%100;if(h)p.push(H[h]);if(r){if(r<20)p.push(U[r]);else{p.push(T[Math.floor(r/10)]);if(r%10)p.push(U[r%10])}}return p.join(' و ')}
+function words(n){n=Math.round(n);if(!n)return 'صفر';var p=[],i=0,g;while(n>0){g=n%1000;if(g)p.unshift(w3(g)+(S[i]?' '+S[i]:''));n=Math.floor(n/1000);i++}return p.join(' و ')}
+document.querySelectorAll('nav button').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x===b)});
+ ['s1','s2','s3'].forEach(function(s){$(s).hidden=(s!=='s'+b.dataset.t)});window.scrollTo(0,0)})});
+/* ---- rows + save ---- */
+var rows=[{d:'',u:'متر مربع',q:'',p:''}];
+function drawRows(){
+ $('rows').innerHTML=rows.map(function(r,i){return '<div class="row"><button class="x" data-i="'+i+'">✕</button><input type="text" class="rd" data-i="'+i+'" placeholder="شرح کار (مثلاً رنگ‌آمیزی دیوار پذیرایی)" value="'+esc(r.d)+'"><div class="g3"><input type="text" class="ru" data-i="'+i+'" value="'+esc(r.u)+'"><input type="text" class="rq" data-i="'+i+'" inputmode="decimal" placeholder="مقدار" value="'+esc(r.q)+'"><input type="text" class="rp" data-i="'+i+'" inputmode="decimal" placeholder="قیمت واحد" value="'+esc(r.p)+'"></div></div>'}).join('');
+}
+$('rows').addEventListener('input',function(e){var i=e.target.dataset.i,c=e.target.className;if(i===undefined)return;rows[i][{rd:'d',ru:'u',rq:'q',rp:'p'}[c]]=e.target.value;save()});
+$('rows').addEventListener('click',function(e){if(e.target.className==='x'){rows.splice(e.target.dataset.i,1);if(!rows.length)rows.push({d:'',u:'متر مربع',q:'',p:''});drawRows();save()}});
+$('addr').addEventListener('click',function(){rows.push({d:'',u:'متر مربع',q:'',p:''});drawRows()});
+function save(){try{var o={rows:rows};document.querySelectorAll('#s2 [id^=i_],#s3 [id^=p_]').forEach(function(e){o[e.id]=e.value});localStorage.setItem('nq1',JSON.stringify(o))}catch(e){}}
+try{var sv=JSON.parse(localStorage.getItem('nq1')||'null');if(sv){if(sv.rows&&sv.rows.length)rows=sv.rows;Object.keys(sv).forEach(function(k){if($(k)&&k!=='rows')$(k).value=sv[k]})}}catch(e){}
+drawRows();
+['s2','s3'].forEach(function(s){$(s).addEventListener('input',save);$(s).addEventListener('change',save)});
+/* ---- invoice ---- */
+function art(n,t,x){return '<p><b>ماده '+fd(n)+' – '+t+':</b> '+x+'</p>'}
+function mkDoc(){
+ var fin=$('i_type').value==='f',sum=0,body='',list=rows.map(function(r){return{d:r.d,u:r.u,q:num(r.q),p:num(r.p)}}).filter(function(r){return r.d||r.q||r.p});
+ if(!list.length){$('doc').innerHTML='<p>حداقل یک ردیف کار با مقدار و قیمت وارد کنید.</p>';$('dc').hidden=false;return}
+ list.forEach(function(r,k){var t=r.q*r.p;sum+=t;body+='<tr><td>'+fd(k+1)+'</td><td>'+E(r.d)+'</td><td>'+E(r.u)+'</td><td>'+fmt(r.q)+'</td><td>'+fmt(r.p)+'</td><td>'+fmt(t)+'</td></tr>'});
+ var di=num($('i_di').value),tp=num($('i_tx').value),base=Math.max(sum-di,0),tax=Math.round(base*tp/100),tot=base+tax,ap=num($('i_ap').value),adv=Math.round(tot*ap/100),pd=num($('i_pd').value),dy=num($('i_dy').value),wr=num($('i_wr').value),va=num($('i_va').value);
+ lastTotal=tot;
+ var dt=new Date(),jd=dt.toLocaleDateString('fa-IR-u-ca-persian',{year:'numeric',month:'2-digit',day:'2-digit'}),no=dt.toLocaleDateString('fa-IR-u-ca-persian-nu-latn',{year:'numeric',month:'2-digit',day:'2-digit'}).replace(/\//g,'')+'-'+('0'+dt.getHours()).slice(-2)+('0'+dt.getMinutes()).slice(-2),
+ br=$('t1').value,me=$('i_me').value||'............',cu=$('i_cu').value||'............',city=$('i_city').value||'رشت',ad=$('i_ad').value||'............',mt=$('i_mt').value,n=0,h='';
+ h+='<h2>'+(fin?'صورت‌حساب نهایی خدمات نقاشی ساختمان':'پیش‌فاکتور و قرارداد انجام خدمات نقاشی ساختمان')+'</h2>';
+ h+='<p style="text-align:center">شماره: '+fd(no)+' &nbsp;|&nbsp; تاریخ: '+jd+'</p>';
+ h+='<p><b>پیمانکار (ارائه‌دهنده خدمات):</b> '+E(me)+' («'+E(br)+'»)'+($('i_mp').value?'، تلفن: '+E($('i_mp').value):'')+($('i_lic').value?'، شماره پروانه/عضویت صنفی: '+E($('i_lic').value):'')+'</p>';
+ h+='<p><b>کارفرما:</b> '+E(cu)+($('i_cp').value?'، تلفن: '+E($('i_cp').value):'')+'</p><p><b>نشانی محل اجرا:</b> '+E(city)+'، '+E(ad)+'</p>';
+ h+='<table><tr><th>ردیف</th><th>شرح کار</th><th>واحد</th><th>مقدار</th><th>فی (تومان)</th><th>جمع (تومان)</th></tr>'+body+'</table>';
+ h+='<p>جمع اقلام: <b>'+fmt(sum)+'</b> تومان'+(di?' | تخفیف: '+fmt(di)+' تومان':'')+(tp?' | مالیات بر ارزش افزوده ('+fd(tp)+'٪): '+fmt(tax)+' تومان':'')+'</p>';
+ h+='<p><b>مبلغ قابل پرداخت: '+fmt(tot)+' تومان</b> (به حروف: '+words(tot)+' تومان، معادل '+fmt(tot*10)+' ریال)</p>';
+ if(fin){
+  h+='<p>کار موضوع این صورت‌حساب مطابق توافق انجام و تحویل کارفرما گردید. پرداخت‌شده: '+fmt(pd)+' تومان؛ <b>مانده قابل پرداخت: '+fmt(Math.max(tot-pd,0))+' تومان</b> (به حروف: '+words(Math.max(tot-pd,0))+' تومان).</p>';
+  h+=art(++n,'ضمانت','اجرای کار به مدت '+fd(wr)+' ماه از تاریخ تحویل نسبت به عیوب ناشی از اجرا ضمانت دارد. رطوبت و نشتی، حرکت و ترک سازه‌ای، ضربه و استفاده یا شست‌وشوی نادرست مشمول ضمانت نیست.');
+  h+=art(++n,'تسویه','با پرداخت کامل مبلغ مانده، طرفین نسبت به کار انجام‌شده هیچ‌گونه ادعای مالی دیگری ندارند، مگر آنکه ضمانت فوق اعمال شود.');
+ }else{
+  h+=art(++n,'موضوع','انجام خدمات نقاشی ساختمان به شرح جدول فوق در محل یادشده. این قرارداد مطابق ماده ۱۰ قانون مدنی نافذ و به موجب ماده ۲۱۹ آن برای طرفین لازم‌الاجراست و طرفین اهلیت قانونی انعقاد آن را دارند.');
+  h+=art(++n,'مدت','مدت اجرا حدود '+fd(dy)+' روز کاری از تاریخ شروع کار است. تأخیر ناشی از کارفرما، شرایط جوی، عدم دسترسی به محل یا قوه قاهره (موضوع ماده ۲۲۷ قانون مدنی) موجب تمدید متناسب مدت می‌شود.');
+  h+=art(++n,'مبلغ و نحوه پرداخت','مبلغ کل قرارداد '+fmt(tot)+' تومان ('+words(tot)+' تومان) است. '+fd(ap)+'٪ معادل '+fmt(adv)+' تومان هنگام امضا و پیش از شروع کار و مابقی پس از تحویل و تأیید کار پرداخت می‌شود. بخش پرداخت‌شده در رسید یا پیام کتبی ثبت می‌گردد.');
+  h+=art(++n,'رنگ و مصالح','تأمین رنگ و مصالح بر عهده '+E(mt)+' است.'+($('i_md').value?' مشخصات: '+E($('i_md').value)+'.':'')+' رنگ و کد رنگ نهایی باید پیش از اجرا کتباً (از جمله با پیام‌رسان) به تأیید کارفرما برسد و تغییر آن پس از اجرا کار جدید محسوب می‌شود.');
+  h+=art(++n,'تعهدات کارفرما','تحویل محل در موعد مقرر و در وضعیتی که اثاثیه خالی یا قابل حفاظت باشد، تأمین برق و آب و دسترسی ایمن به محل، و اعلام قبلی هرگونه رطوبت، نشتی یا ترک موجود در سطوح.');
+  h+=art(++n,'تعهدات پیمانکار','اجرای کار مطابق اصول فنی و عرف صنف نقاشی ساختمان، رعایت ایمنی کار در ارتفاع، حفاظت متعارف از کف و اثاثیه با پوشش مناسب و تحویل محل پس از پایان کار با نظافت اولیه.');
+  h+=art(++n,'ضمانت','اجرای کار به مدت '+fd(wr)+' ماه از تاریخ تحویل نسبت به عیوب ناشی از اجرا (مانند پوسته‌شدن یا ریزش رنگ) ضمانت دارد. رطوبت و نشتی، حرکت و ترک سازه‌ای، ضربه و استفاده یا شست‌وشوی نادرست مشمول ضمانت نیست.');
+  h+=art(++n,'کار اضافه و تغییرات','هر کار خارج از جدول فوق یا تغییر در متراژ و مشخصات، با توافق کتبی طرفین و جداگانه محاسبه می‌شود.');
+  h+=art(++n,'اعتبار قیمت و تعدیل','قیمت‌ها تا '+fd(va)+' روز از تاریخ این سند معتبر است. در صورت افزایش فاحش قیمت مصالح پس از آن، قیمت با توافق طرفین تعدیل می‌شود.');
+  h+=art(++n,'تأخیر در پرداخت و ایفای تعهد','تأخیر در پرداخت مطالبات، پیمانکار را مجاز می‌کند تا تسویه از ادامه کار خودداری کند. خسارت ناشی از عدم ایفای تعهد از سوی هر طرف مطابق قانون مدنی (از جمله مواد ۲۲۶، ۲۲۷ و ۲۳۰) قابل مطالبه است.');
+  h+=art(++n,'مالیات',tp?'مالیات بر ارزش افزوده به میزان '+fd(tp)+'٪ در مبلغ فوق منظور شده است.':'مبلغ فوق بدون مالیات و عوارض ارزش افزوده است، مگر آنکه به‌صراحت ذکر شده باشد.');
+  h+=art(++n,'حل اختلاف','طرفین ابتدا از راه مذاکره و در صورت نیاز با مراجعه به اتحادیه صنفی مربوط، و در صورت عدم حل، از طریق مراجع قضایی صالح شهر '+E(city)+' اقدام می‌کنند.');
+  h+=art(++n,'اقامتگاه و ابلاغ','نشانی و تلفن مذکور در این سند اقامتگاه قانونی طرفین است و ابلاغ‌ها از همین طریق معتبر است. این سند در دو نسخه هم‌ارزش تنظیم و امضا شده است.');
+ }
+ h+='<div class="sign"><div>پیمانکار<br>'+E(me)+'<br><br>امضا</div><div>کارفرما<br>'+E(cu)+'<br><br>امضا</div></div>';
+ $('doc').innerHTML=h;$('dc').hidden=false;$('dc').scrollIntoView();
+}
+$('mk').addEventListener('click',mkDoc);
+$('pr').addEventListener('click',function(){try{window.print()}catch(e){}});
+$('cp').addEventListener('click',function(){var t=$('doc').innerText;
+ function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}
+ try{navigator.clipboard.writeText(t).catch(fb)}catch(e){fb()}$('cp').textContent='کپی شد'});
+$('fi').addEventListener('click',function(){
+ var s=0,i;for(i=0;i<rows.length;i++)s+=num(rows[i].q)*num(rows[i].p);
+ var b=Math.max(s-num($('i_di').value),0),t=b+Math.round(b*num($('i_tx').value)/100);
+ if(t>0){$('p_rv').value=t;save()}else{$('fi').textContent='ابتدا ردیف‌های فاکتور را پر کنید';setTimeout(function(){$('fi').textContent='گرفتن مبلغ از فاکتور'},2500)}
+});
+/* ---- planner ---- */
+$('pc').addEventListener('click',function(){
+ var g=function(i){return num($('p_'+i).value)},ar=g('ar'),ct=g('ct'),ou=g('ou')||1,pp=g('pp'),hc=g('hc'),mw=g('mw'),hw=g('hw'),lu=g('lu'),tr=g('tr'),cv=g('cv')||10,lp=g('lp'),wa=g('wa'),ot=g('ot'),rv=g('rv'),
+ pe=1+hc,pd=Math.ceil(ar*ct/(ou*pe)),dy=pp+pd,lit=ar*ct/cv*(1+wa/100),
+ c=[['دستمزد تو ('+fd(dy)+' روز)',dy*mw],['دستمزد شاگرد ('+fd(hc)+' نفر)',dy*hw*hc],['ناهار',dy*lu*pe],['رفت‌وآمد',dy*tr],['رنگ ('+fd(Math.ceil(lit))+' لیتر)',lit*lp],['آستر، بتونه و ملزومات',ot]],
+ cost=c.reduce(function(s,x){return s+x[1]},0),pf=rv-cost,mg=rv?pf/rv*100:0,w=[],r=[];
+ if(!ar)w.push('متراژ وارد نشده است.');
+ if(!pp)w.push('برای بتونه، سنباده و آستر روزی در نظر نگرفته‌ای. معمولاً بخش مهمی از زمان کار است.');
+ if(rv&&pf<0)w.push('با این مبلغ ضرر می‌کنی. حداقل قیمت بدون ضرر '+fmt(cost)+' تومان است.');
+ else if(rv&&mg<20)w.push('حاشیه سود کمتر از ۲۰٪ است. هر تأخیر یا اشتباه سودت را صفر می‌کند.');
+ if(hc>0&&!hw)w.push('روزمزد شاگرد را وارد نکرده‌ای.');
+ if(!mw)w.push('دستمزد روزانه خودت وارد نشده و سود واقعی بیشتر از واقعیت نشان داده می‌شود.');
+ if(!ot)w.push('هزینه آستر، بتونه، نایلون، چسب و سنباده صفر است. این اقلام معمولاً فراموش می‌شوند.');
+ if(!tr)w.push('هزینه رفت‌وآمد صفر است.');
+ if(ct<2)w.push('یک دست رنگ معمولاً پوشش کامل نمی‌دهد. اگر رنگ دیوار فعلی تیره است دست سوم هم لازم می‌شود.');
+ if(dy>6)w.push('پروژه بیش از یک هفته طول می‌کشد. پرداخت مرحله‌ای بگذار.');
+ if(rv&&c[4][1]/rv>.4)w.push('سهم رنگ بیش از ۴۰٪ قرارداد است. بند تعدیل قیمت را حتماً بنویس.');
+ if(hc>0)r.push('شاگرد مزدبگیر است: حداقل دستمزد مصوب امسال و بیمه‌اش را بررسی کن.');
+ r.push('قبل از شروع از همه‌ی سطوح عکس بگیر. مدرک برای ترک و رطوبت قبلی است.');
+ r.push('کد رنگ را کتبی از کارفرما بگیر و نمونه کوچک بزن.');
+ r.push('پیش‌پرداخت را پیش از خرید رنگ بگیر.');
+ r.push('فاکتور خرید رنگ و مصالح را نگه دار.');
+ r.push('ایمنی کار در ارتفاع: نردبان یا داربست سالم و تهویه هنگام رنگ.');
+ r.push('قبل از قیمت‌دادن رطوبت، نشتی و ترک را ببین. ضمانت شامل آن‌ها نمی‌شود.');
+ r.push('نظافت پایان کار و جمع‌کردن ابزار را در برنامه بگذار.');
+ r.push('درآمد و هزینه این کار را در دفترت ثبت کن، تا برای مالیات و صنف آماده باشی.');
+ var t='<table>'+c.map(function(x){return '<tr><td>'+x[0]+'</td><td>'+fmt(x[1])+'</td></tr>'}).join('')+'<tr><td><b>جمع هزینه</b></td><td><b>'+fmt(cost)+'</b></td></tr>'+(rv?'<tr><td>مبلغ قرارداد</td><td>'+fmt(rv)+'</td></tr><tr><td><b>سود پس از دستمزد خودت</b></td><td><b>'+fmt(pf)+' ('+fd(Math.round(mg))+'٪)</b></td></tr>':'')+(ar?'<tr><td>هزینه هر متر</td><td>'+fmt(cost/ar)+'</td></tr><tr><td>قیمت هر متر برای ۲۵٪ سود</td><td>'+fmt(cost/ar/.75)+'</td></tr>':'')+'</table><p>زمان تخمینی: '+fd(dy)+' روز ('+fd(pp)+' روز آماده‌سازی و '+fd(pd)+' روز رنگ با '+fd(pe)+' نفر)</p>';
+ if(w.length)t+='<h3>هشدارها</h3>'+w.map(function(x){return '<div class="w">'+x+'</div>'}).join('');
+ t+='<h3>فراموش نکن</h3>'+r.map(function(x){return '<div class="r">'+x+'</div>'}).join('');
+ $('pres').innerHTML=t;$('pres').hidden=false;$('pres').scrollIntoView();
+});
+if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){})})}
+</script>
+</body>
+</html>
